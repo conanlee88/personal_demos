@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.daydayup.mydemo.view.RecorderWaveView
+            android:id="@+id/recorder_wave_view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"/>
+
+        <Button
+            android:id="@+id/btn_start_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start_record" />
+
+        <Button
+            android:id="@+id/btn_stop_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="stop_record" />
+
+        <Button
+            android:id="@+id/btn_enhance_voice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="enhance_voice" />
+
+        <Button
+            android:id="@+id/btn_decrease_voice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="decrease_voice" />
+
+        <Button
+            android:id="@+id/btn_quiet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="quiet" />
+    </LinearLayout>
+</layout>
