@@ -1,24 +1,16 @@
 package com.daydayup.mydemo.activity;
 
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.daydayup.mydemo.R;
 import com.daydayup.mydemo.databinding.ActivityMyCameraViewBinding;
-import com.daydayup.mydemo.util.BitmapUtils;
-
-import java.io.IOException;
 
 /**
  * Created by 52979 on 2017/12/12.
@@ -26,10 +18,10 @@ import java.io.IOException;
  * @des ${TODO}
  */
 
-public class MyCameraViewActivity extends AppCompatActivity implements SurfaceHolder.Callback {
+public class MyCameraViewActivity extends AppCompatActivity {
 
-    private Camera mCamera;
-    private SurfaceHolder mHolder;
+//    private Camera mCamera;
+//    private SurfaceHolder mHolder;
     private ActivityMyCameraViewBinding mBinding;
     private boolean mIsOpenFlashlight = false;
     private byte[] mImageBuffer;
@@ -48,9 +40,9 @@ public class MyCameraViewActivity extends AppCompatActivity implements SurfaceHo
     private void initView() {
         mBinding = DataBindingUtil.setContentView(MyCameraViewActivity.this,
                 R.layout.activity_my_camera_view);
-        mHolder = mBinding.surfaceView.getHolder();
-        mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        mHolder.addCallback(this);
+//        mHolder = mBinding.surfaceView.getHolder();
+//        mHolder.addCallback(this);
+//        mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         initEvent();
     }
 
@@ -62,43 +54,42 @@ public class MyCameraViewActivity extends AppCompatActivity implements SurfaceHo
 //                mCamera.release();
 //                mCamera = Camera.open();
 //                mIsOpenFlashlight = !mIsOpenFlashlight;
-                Camera.Parameters parameters = mCamera.getParameters();
-                if (mIsOpenFlashlight) parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-                else parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-                mCamera.setParameters(parameters);
-                try {
-                    mCamera.setPreviewDisplay(mHolder);
-                    mCamera.startPreview();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+//                Camera.Parameters parameters = mCamera.getParameters();
+//                if (mIsOpenFlashlight) parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+//                else parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+//                mCamera.setParameters(parameters);
+//                try {
+//                    mCamera.setPreviewDisplay(mHolder);
+//                    mCamera.startPreview();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
             }
         });
 
         mBinding.btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCamera.release();
-                finish();
+//                mCamera.release();
+//                finish();
             }
         });
 
         mBinding.btnTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCamera.takePicture(null, null, new Camera.PictureCallback() {
-                    @Override
-                    public void onPictureTaken(byte[] data, Camera camera) {
-                        mImageBuffer = data;
-                        BitmapFactory.Options options = new BitmapFactory.Options();
-
-                        Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length,options);
-                        bitmap = BitmapUtils.rotaingImageView(90,bitmap);
-                        mBinding.picTook.setImageBitmap(bitmap);
-                        mBinding.surfaceView.setVisibility(View.GONE);
-//                        mCamera.stopPreview();
-                    }
-                });
+//                mCamera.takePicture(null, null, new Camera.PictureCallback() {
+//                    @Override
+//                    public void onPictureTaken(byte[] data, Camera camera) {
+//                        mImageBuffer = data;
+//                        BitmapFactory.Options options = new BitmapFactory.Options();
+//
+//                        Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length,options);
+//                        bitmap = BitmapUtils.rotaingImageView(90,bitmap);
+//                        mBinding.picTook.setImageBitmap(bitmap);
+//                        mBinding.surfaceView.setVisibility(View.GONE);
+//                    }
+//                });
             }
         });
 
@@ -125,10 +116,10 @@ public class MyCameraViewActivity extends AppCompatActivity implements SurfaceHo
     @Override
     protected void onPause() {
         super.onPause();
-        if (mCamera != null) {
-            mCamera.release();
-            mCamera = null;
-        }
+//        if (mCamera != null) {
+//            mCamera.release();
+//            mCamera = null;
+//        }
         Log.v("conan","onPause");
     }
 
@@ -144,35 +135,4 @@ public class MyCameraViewActivity extends AppCompatActivity implements SurfaceHo
         super.onDestroy();
     }
 
-    @Override
-    public void surfaceCreated(SurfaceHolder holder) {
-        mCamera = Camera.open();
-        //设置相机的拍摄角度为竖向
-        mCamera.setDisplayOrientation(90);
-        try {
-            mCamera.setPreviewDisplay(mHolder);
-            mCamera.startPreview();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-        if (holder == null)
-            return;
-        mCamera.stopPreview();
-
-        try {
-            mCamera.setPreviewDisplay(holder);
-            mCamera.startPreview();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void surfaceDestroyed(SurfaceHolder holder) {
-
-    }
 }
