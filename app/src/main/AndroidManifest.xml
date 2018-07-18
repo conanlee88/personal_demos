@@ -24,6 +24,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <activity android:name=".activity.AudioRecorderActivity"/>
+
+        <activity android:name=".activity.ViewEffectActivity"/>
+
+        <activity android:name=".activity.FanLayoutActivity"/>
     </application>
 
 </manifest>

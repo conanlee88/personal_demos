@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <SurfaceView
+        <com.daydayup.mydemo.view.CameraView
             android:id="@+id/surface_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
