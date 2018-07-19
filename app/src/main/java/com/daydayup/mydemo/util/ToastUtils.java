@@ -12,7 +12,7 @@ import com.daydayup.mydemo.MyDemoApplication;
 public class ToastUtils {
 
     public static void makeToast(String content) {
-        Toast.makeText(MyDemoApplication.getMyDemoApplication(),
+        Toast.makeText(MyDemoApplication.getContext(),
                 content, Toast.LENGTH_SHORT).show();
     }
 }

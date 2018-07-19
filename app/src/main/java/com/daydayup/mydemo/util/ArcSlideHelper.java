@@ -205,43 +205,18 @@ public class ArcSlideHelper {
     }
 
     private void handleActionMove(float x, float y) {
-//        float l, t, r, b;
-//        if (mStartX > x) {
-//            r = mStartX;
-//            l = x;
-//        } else {
-//            r = x;
-//            l = mStartX;
-//        }
-//        if (mStartY > y) {
-//            b = mStartY;
-//            t = y;
-//        } else {
-//            b = y;
-//            t = mStartY;
-//        }
-//        float pA1 = Math.abs(mStartX - mPivotX);
-//        float pA2 = Math.abs(mStartY - mPivotY);
-//        float pB1 = Math.abs(x - mPivotX);
-//        float pB2 = Math.abs(y - mPivotY);
-//        float hypotenuse = (float) Math.sqrt(Math.pow(r - l, 2) + Math.pow(b - t, 2));
-//        float lineA = (float) Math.sqrt(Math.pow(pA1, 2) + Math.pow(pA2, 2));
-//        float lineB = (float) Math.sqrt(Math.pow(pB1, 2) + Math.pow(pB2, 2));
-//        if (hypotenuse > 0 && lineA > 0 && lineB > 0) {
-//            float angle = fixAngle((float) Math.toDegrees(Math.acos((Math.pow(lineA, 2) + Math.pow(lineB, 2) - Math.pow(hypotenuse, 2)) / (2 * lineA * lineB))));
-//            if (!Float.isNaN(angle)) {
-//                mListener.onSliding((mIsClockwiseScrolling = isClockwise(x, y)) ? angle : -angle);
-//            }
-//        }
 
-        float lineA = (float) Math.sqrt(Math.pow(Math.abs(mStartX - mPivotX), 2) + Math.pow(Math.abs(mStartY - mPivotY), 2));
-        float lineB = (float) Math.sqrt(Math.pow(Math.abs(x- mPivotX),2) + Math.pow(Math.abs(y - mPivotY),2));
-        float lineC = (float) Math.sqrt(Math.pow(Math.abs(x- mStartX),2) + Math.pow(Math.abs(y - mStartY),2));
+        float lineA = (float) Math.sqrt(Math.pow(Math.abs(mStartX - mPivotX), 2) +
+                Math.pow(Math.abs(mStartY - mPivotY), 2));
+        float lineB = (float) Math.sqrt(Math.pow(Math.abs(x- mPivotX),2) +
+                Math.pow(Math.abs(y - mPivotY),2));
+        float lineC = (float) Math.sqrt(Math.pow(Math.abs(x- mStartX),2) +
+                Math.pow(Math.abs(y - mStartY),2));
 
         if (lineA > 0 && lineB > 0 && lineC > 0){
-            double degrees = Math.toDegrees(Math.acos((Math.pow(lineA, 2) + Math.pow(lineB, 2) - Math.pow(lineC, 2)) / (2 * lineA * lineB)));
+            double degrees = Math.toDegrees(Math.acos(
+                    (Math.pow(lineA, 2) + Math.pow(lineB, 2) - Math.pow(lineC, 2)) / (2 * lineA * lineB)));
             float angle = fixAngle(degrees);
-            Log.v(Consts.LOG_TAG,this.getClass().getSimpleName() + "---angle = " + angle);
             if (!Float.isNaN(angle)){
                 // 滑动回调事件
                 mIsClockwiseScrolling = isClockwise(x,y);
