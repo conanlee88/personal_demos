@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -9,7 +10,12 @@
 
         <com.daydayup.mydemo.view.FanLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:bearingType="color"
+            app:bearingColor="@color/colorAccent"
+            app:bearingPosition="center"
+            app:bearingRadius="50dp"
+            app:isViewForeground="true">
 
             <include
                 android:id="@+id/first_view"

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FanLayout">
+        <!--轴承类型-->
+        <attr name="bearingType" format="enum">
+            
+            <enum name="color" value="0"/>
+            
+            <enum name="view" value="1"/>
+        </attr>
+
+        <!--轴承半径-->
+        <attr name="bearingRadius" format="dimension"/>
+
+        <!--轴承颜色(当轴承类型为color的时候才有效)-->
+        <attr name="bearingColor" format="color"/>
+
+        <!--自定义轴承布局(当轴承类型为view的时候才有效)-->
+        <attr name="bearingLayout" format="reference"/>
+
+        <!--轴承是否可以转动-->
+        <attr name="bearingCanRoll" format="boolean"/>
+
+        <!--轴承位置-->
+        <attr name="bearingPosition" format="enum">
+
+            <enum name="leftTop" value="0"/>
+
+            <enum name="centerHorizontalTop" value="1"/>
+
+            <enum name="rightTop" value="2"/>
+
+            <enum name="leftCenterVertical" value="3"/>
+
+            <enum name="center" value="4"/>
+
+            <enum name="rightCenterVertical" value="5"/>
+
+            <enum name="leftBottom" value="6"/>
+
+            <enum name="centerHorizontalBottom" value="7"/>
+
+            <enum name="rightBottom" value="8"/>
+        </attr>
+
+        <!--item距中心距离-->
+        <attr name="itemOffset" format="dimension"/>
+
+        <!--轴承的图片或者颜色是在item的上方还是下方-->
+        <attr name="isViewForeground" format="boolean"/>
+    </declare-styleable>
+</resources>

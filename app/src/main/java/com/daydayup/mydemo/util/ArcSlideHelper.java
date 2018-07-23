@@ -4,14 +4,11 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.FloatRange;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewParent;
 import android.widget.Scroller;
-
-import com.daydayup.mydemo.consts.Consts;
 
 /**
  * Created by conan on 2018/7/18.
@@ -142,7 +139,7 @@ public class ArcSlideHelper {
     /**
      * 打断动画
      */
-    public void abortAnimatinon(){
+    public void abortAnimation(){
         checkIsRecycled();
         if (!mScroller.isFinished()){
             mScroller.abortAnimation();
@@ -246,8 +243,8 @@ public class ArcSlideHelper {
 
     /**
      * 调整角度，使其在0~360之间
-     * @param degrees
-     * @return
+     * @param degrees 要调整的调度
+     * @return 调整后的角度
      */
     private float fixAngle(double degrees) {
         if (degrees < 0){
