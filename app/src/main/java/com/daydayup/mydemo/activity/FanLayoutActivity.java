@@ -11,8 +11,8 @@ import com.daydayup.mydemo.databinding.FanLayoutActivityBinding;
 import com.daydayup.mydemo.util.ToastUtils;
 
 /**
+ *
  * Created by conan on 2018/7/18.
- * © 2017 Dafy Inc All Rights Reserved
  */
 
 public class FanLayoutActivity extends AppCompatActivity{

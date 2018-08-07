@@ -18,8 +18,9 @@ import com.daydayup.mydemo.util.ArcSlideHelper;
 import com.wuyr.ArcSlidingHelper;
 
 /**
+ * 旋转的控件容器
+ *
  * Created by conan on 2018/7/18.
- * © 2017 Dafy Inc All Rights Reserved
  */
 
 public class FanLayout extends ViewGroup implements ArcSlidingHelper.OnSlidingListener, ArcSlideHelper.OnSlidingListener {

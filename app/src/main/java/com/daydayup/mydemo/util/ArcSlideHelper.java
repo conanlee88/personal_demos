@@ -11,8 +11,9 @@ import android.view.ViewParent;
 import android.widget.Scroller;
 
 /**
+ * 旋转帮助类
+ *
  * Created by conan on 2018/7/18.
- * © 2017 Dafy Inc All Rights Reserved
  */
 
 public class ArcSlideHelper {

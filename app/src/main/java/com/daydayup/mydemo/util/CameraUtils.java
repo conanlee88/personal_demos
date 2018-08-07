@@ -5,8 +5,8 @@ import android.hardware.Camera;
 import java.util.List;
 
 /**
+ *
  * Created by conan on 2018/7/17.
- * © 2017 Dafy Inc All Rights Reserved
  */
 
 public class CameraUtils {

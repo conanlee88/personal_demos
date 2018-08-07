@@ -13,7 +13,7 @@ import com.daydayup.mydemo.R;
 import com.daydayup.mydemo.databinding.ActivityMyCameraViewBinding;
 
 /**
- * Created by 52979 on 2017/12/12.
+ * Created by conan on 2017/12/12.
  *
  * @des ${TODO}
  */

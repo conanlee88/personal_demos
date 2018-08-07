@@ -5,8 +5,8 @@ import android.widget.Toast;
 import com.daydayup.mydemo.MyDemoApplication;
 
 /**
+ *
  * Created by conan on 2018/7/17.
- * © 2017 Dafy Inc All Rights Reserved
  */
 
 public class ToastUtils {

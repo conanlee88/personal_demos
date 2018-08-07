@@ -11,8 +11,8 @@ import com.daydayup.mydemo.R;
 import com.daydayup.mydemo.databinding.ActivityViewEffectBinding;
 
 /**
+ *
  * Created by conan on 2018/7/18.
- * © 2017 Dafy Inc All Rights Reserved
  */
 
 public class ViewEffectActivity extends AppCompatActivity {

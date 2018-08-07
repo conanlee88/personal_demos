@@ -4,8 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 /**
+ *
  * Created by conan on 2018/7/17.
- * © 2017 Dafy Inc All Rights Reserved
  */
 
 public class MyDemoApplication extends Application {
