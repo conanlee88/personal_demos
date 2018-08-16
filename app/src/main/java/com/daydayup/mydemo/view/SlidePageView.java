@@ -79,6 +79,7 @@ public class SlidePageView extends FrameLayout{
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        performClick();
         //将触摸事件交给viewDragHelper处理
         mViewDragHelper.processTouchEvent(event);
         return true;
