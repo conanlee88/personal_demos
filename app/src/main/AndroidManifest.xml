@@ -29,6 +29,10 @@
         <activity android:name=".activity.ViewEffectActivity"/>
 
         <activity android:name=".activity.FanLayoutActivity"/>
+
+        <activity android:name=".activity.TestActivity"/>
+
+        <activity android:name=".activity.SlideLayoutActivity"/>
     </application>
 
 </manifest>

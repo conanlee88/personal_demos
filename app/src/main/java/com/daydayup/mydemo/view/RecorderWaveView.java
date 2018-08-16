@@ -2,9 +2,12 @@ package com.daydayup.mydemo.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.daydayup.mydemo.R;
@@ -12,6 +15,8 @@ import com.daydayup.mydemo.util.ArrayUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static com.daydayup.mydemo.consts.Consts.LOG_TAG;
 
 /**
  * Created by conan on 2017/12/12.
@@ -34,6 +39,7 @@ public class RecorderWaveView extends View {
     private int mWaveCount;
     private float mHeightChangeRate = 1 / 12f;
     private int mHalfWavePeriod;
+    private LinearGradient mLinearGradient;
 
     public RecorderWaveView(Context context) {
         this(context, null);
@@ -62,7 +68,7 @@ public class RecorderWaveView extends View {
                 //间隔20ms刷新一次，并延后50ms执行
                 postInvalidate();
             }
-        }, 20, 20);
+        }, 30, 30);
     }
 
     public void stopRecorder() {
@@ -84,6 +90,7 @@ public class RecorderWaveView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.v(LOG_TAG,this.getClass().getSimpleName() + "---onMeasure");
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if (mMaxHeight == 0) {
             int widthSize = MeasureSpec.getSize(widthMeasureSpec);
@@ -122,6 +129,7 @@ public class RecorderWaveView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        Log.v(LOG_TAG,this.getClass().getSimpleName() + "---onDraw");
         float viewMiddleHeight = getHeight() / 2f;
         float offsetHeight = (mMaxHeight - mMinHeight) * mHeightChangeRate;
         for (int index = 0; index < mWaveCount; index++) {
@@ -142,5 +150,32 @@ public class RecorderWaveView extends View {
                 mIsIncrease[index] = true;
             }
         }
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        Log.v(LOG_TAG,this.getClass().getSimpleName() + "---onSizeChanged");
+        // 添加渐变效果，当控件大小改变的时候，就会回调onSizeChanged方法
+        // 这个方法回调时，getWidth()和getHeight()方法以及获取到了正确的宽高
+        // 所以在这个方法里面初始化渐变对象linearGradient
+        int startAndEndColor = getResources().getColor(R.color.colorAccent);
+        int[] colors = {startAndEndColor,getResources().getColor(R.color.colorPrimary),startAndEndColor};
+        float[] positions = {0.3f,0.5f,0.7f};
+        //渐变模式为镜像，并且由颜色数组和位置数组来控制效果
+        mLinearGradient = new LinearGradient(0,0,mWaveWidth,getHeight(),colors,positions, Shader.TileMode.MIRROR);
+        mPaint.setShader(mLinearGradient);
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        Log.v(LOG_TAG,this.getClass().getSimpleName() + "---onFinishInflate");
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        Log.v(LOG_TAG,this.getClass().getSimpleName() + "---onLayout");
     }
 }

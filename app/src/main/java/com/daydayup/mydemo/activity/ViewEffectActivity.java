@@ -38,5 +38,13 @@ public class ViewEffectActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mViewEffectBinding.slideLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewEffectActivity.this,SlideLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

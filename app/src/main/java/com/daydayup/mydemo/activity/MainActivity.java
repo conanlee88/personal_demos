@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.daydayup.mydemo.R;
 import com.daydayup.mydemo.databinding.ActivityMainBinding;
+import com.daydayup.mydemo.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onDeny(String permission, int position) {
                                 Log.v("conan","onDeny");
-                                Toast.makeText(MainActivity.this,"请打开相机权限，否则无法拍照",Toast.LENGTH_SHORT);
+                                ToastUtils.makeToast("请打开相机权限，否则无法拍照");
                             }
 
                             @Override
@@ -90,6 +90,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,ViewEffectActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBinding.test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,TestActivity.class);
                 startActivity(intent);
             }
         });

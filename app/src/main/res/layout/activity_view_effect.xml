@@ -16,6 +16,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="fan_layout"/>
+
+            <Button
+                android:id="@+id/slide_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="slide_layout"/>
         </LinearLayout>
     </ScrollView>
 </layout>

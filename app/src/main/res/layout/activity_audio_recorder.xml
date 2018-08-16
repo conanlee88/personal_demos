@@ -41,5 +41,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="quiet" />
+
+        <Button
+            android:id="@+id/btn_change_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="change_size" />
     </LinearLayout>
 </layout>

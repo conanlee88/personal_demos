@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'MyPlugin'
+
+MyPlugin.name = 'conan'
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -22,15 +26,24 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
-
-    compile 'me.weyye.hipermission:library:1.0.7'
-
+    implementation 'me.weyye.hipermission:library:1.0.7'
     implementation 'com.wuyr:arcslidinghelper:1.0.1'
-
 }
+
+class GreetingPlugin implements Plugin<Project> {
+    void apply(Project project) {
+        project.task('hello') {
+            doLast {
+                println 'Hello from the GreetingPlugin'
+            }
+        }
+    }
+}
+
+apply plugin: GreetingPlugin

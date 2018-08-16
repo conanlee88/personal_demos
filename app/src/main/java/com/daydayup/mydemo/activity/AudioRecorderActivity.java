@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.daydayup.mydemo.R;
 import com.daydayup.mydemo.databinding.ActivityAudioRecorderBinding;
@@ -14,7 +15,7 @@ import java.util.Random;
 /**
  * Created by conan on 2017/12/12.
  *
- * @des ${TODO}
+ * @desc ${TODO}
  */
 
 public class AudioRecorderActivity extends AppCompatActivity {
@@ -65,6 +66,13 @@ public class AudioRecorderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAudioRecorderBinding.recorderWaveView.resetMaxHeight();
+            }
+        });
+        mAudioRecorderBinding.btnChangeSize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,1000);
+                mAudioRecorderBinding.recorderWaveView.setLayoutParams(layoutParams);
             }
         });
     }
