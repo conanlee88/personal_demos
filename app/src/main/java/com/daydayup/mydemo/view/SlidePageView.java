@@ -9,6 +9,7 @@ import android.support.v4.widget.ViewDragHelper.Callback;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 
 /**
@@ -52,6 +53,8 @@ public class SlidePageView extends FrameLayout{
             ViewCompat.postInvalidateOnAnimation(SlidePageView.this);
         }
     };
+    private float mStartX;
+    private float mEventX;
 
     public SlidePageView(@NonNull Context context) {
         this(context,null);
@@ -74,15 +77,42 @@ public class SlidePageView extends FrameLayout{
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         //将触摸事件的拦截事件交给viewDragHelper处理
-        return mViewDragHelper.shouldInterceptTouchEvent(ev);
+        switch (ev.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                mStartX = ev.getX();
+                break;
+            case MotionEvent.ACTION_UP:
+                float lastX = ev.getX();
+                return !(Math.abs(lastX - mStartX) < ViewConfiguration.get(getContext()).getScaledTouchSlop());
+        }
+//        return mViewDragHelper.shouldInterceptTouchEvent(ev);
+        return true;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        performClick();
+//        Log.v(LOG_TAG,this.getClass().getSimpleName() + "---onTouchEvent");
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                mEventX = event.getX();
+                break;
+            case MotionEvent.ACTION_UP:
+                float eventEndX = event.getX();
+                if (Math.abs(eventEndX - mEventX) < ViewConfiguration.get(getContext()).getScaledTouchSlop()){
+                    //当抬起的时候小于最小误操的滑动距离就判定为点击事件，并调用其点击方法
+                    mContentView.performClick();
+                    return true;
+                }
+                break;
+        }
         //将触摸事件交给viewDragHelper处理
         mViewDragHelper.processTouchEvent(event);
         return true;
+    }
+
+    @Override
+    public boolean performClick() {
+        return super.performClick();
     }
 
     @Override

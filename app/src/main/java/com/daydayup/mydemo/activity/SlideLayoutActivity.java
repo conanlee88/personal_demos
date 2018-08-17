@@ -4,9 +4,11 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.daydayup.mydemo.R;
 import com.daydayup.mydemo.databinding.SlideViewBinding;
+import com.daydayup.mydemo.util.ToastUtils;
 
 /**
  * $desc$
@@ -16,6 +18,8 @@ import com.daydayup.mydemo.databinding.SlideViewBinding;
 public class SlideLayoutActivity extends AppCompatActivity {
 
     private SlideViewBinding mSlideViewBinding;
+    private float mStartX;
+    private float mLastX;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,5 +29,11 @@ public class SlideLayoutActivity extends AppCompatActivity {
 
     private void initView() {
         mSlideViewBinding = DataBindingUtil.setContentView(this, R.layout.slide_view);
+        mSlideViewBinding.contentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.makeToast("点击了contentView");
+            }
+        });
     }
 }
