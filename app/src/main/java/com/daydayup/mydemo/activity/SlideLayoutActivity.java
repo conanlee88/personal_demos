@@ -18,8 +18,6 @@ import com.daydayup.mydemo.util.ToastUtils;
 public class SlideLayoutActivity extends AppCompatActivity {
 
     private SlideViewBinding mSlideViewBinding;
-    private float mStartX;
-    private float mLastX;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
