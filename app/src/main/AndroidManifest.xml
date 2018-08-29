@@ -35,6 +35,9 @@
         <activity android:name=".activity.SlideLayoutActivity"/>
 
         <activity android:name=".activity.ImageEffectActivity"/>
+
+        <activity android:name=".activity.game.GameHomeActivity"/>
+        <activity android:name=".activity.game.puzzle.PuzzleMainActivity"/>
     </application>
 
 </manifest>
