@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">MyDemo</string>
     <string name="_2">难度选择：2阶</string>
+    <string name="puzzle_time_count">计时</string>
+    <string name="puzzle_step_count">计步</string>
+    <string name="origin_pic">原图</string>
+    <string name="reset">重置</string>
+    <string name="back">返回</string>
 </resources>

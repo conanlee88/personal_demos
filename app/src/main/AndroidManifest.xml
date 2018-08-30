@@ -37,7 +37,8 @@
         <activity android:name=".activity.ImageEffectActivity"/>
 
         <activity android:name=".activity.game.GameHomeActivity"/>
-        <activity android:name=".activity.game.puzzle.PuzzleMainActivity"/>
+        <activity android:name=".activity.game.puzzle.ui.PuzzleMainActivity"/>
+        <activity android:name=".activity.game.puzzle.ui.PuzzleGameActivity"/>
     </application>
 
 </manifest>

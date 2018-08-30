@@ -10,7 +10,7 @@ import android.widget.SeekBar;
 
 import com.daydayup.mydemo.R;
 import com.daydayup.mydemo.databinding.ActivityImageEffectBinding;
-import com.daydayup.mydemo.util.ImageEffectUtils;
+import com.daydayup.mydemo.util.ImageUtils;
 
 /**
  * $desc$
@@ -66,7 +66,7 @@ public class ImageEffectActivity extends AppCompatActivity implements SeekBar.On
 
     private void showImageEffect() {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.timg);
-        Bitmap imageEffect = ImageEffectUtils.handleImageEffect(bitmap, mHub, mSaturation, mBrightness);
+        Bitmap imageEffect = ImageUtils.handleImageEffect(bitmap, mHub, mSaturation, mBrightness);
         mImageEffectBinding.imageView.setImageBitmap(imageEffect);
     }
 }

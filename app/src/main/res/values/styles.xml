@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="PuzzleGameViewStyle">
+        <item name="android:textColor">@color/colorPuzzleMainText</item>
+        <item name="android:background">@drawable/btn_bg</item>
+    </style>
 </resources>

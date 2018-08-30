@@ -4,11 +4,13 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorBtnPressed">#33444444</color>
-    <color name="colorBtnNormal">#ccc</color>
+    <color name="colorBtnNormal">#f6f6e9</color>
     <color name="colorPuzzleMainBg">#9bb7d6</color>
     <color name="colorPuzzleMainText">#e86830</color>
     <color name="colorWhite">#fff</color>
     <color name="colorBlack">#000</color>
     <color name="colorGray">#8888</color>
     <color name="colorGraySub">#eeeeee</color>
+    <color name="colorDarkBlue">#13334c</color>
+    <color name="colorOrangeGray">#ec9e69</color>
 </resources>

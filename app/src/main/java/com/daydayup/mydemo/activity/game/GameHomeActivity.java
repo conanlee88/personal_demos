@@ -1,7 +1,7 @@
 package com.daydayup.mydemo.activity.game;
 
 import com.daydayup.mydemo.activity.ListBaseActivity;
-import com.daydayup.mydemo.activity.game.puzzle.PuzzleMainActivity;
+import com.daydayup.mydemo.activity.game.puzzle.ui.PuzzleMainActivity;
 
 import java.util.ArrayList;
 import java.util.List;

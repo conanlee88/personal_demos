@@ -7,7 +7,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -16,6 +15,7 @@ import com.daydayup.mydemo.MyDemoApplication;
 import com.daydayup.mydemo.R;
 import com.daydayup.mydemo.databinding.PopListBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,7 +31,7 @@ public class PopFactory {
      * @param options pop的选项（string的列表类型）
      * @return pop
      */
-    public static PopupWindow createPop(Context context, int width, int height, String title, @NonNull List<String> options, AdapterView.OnItemClickListener onItemClickListener){
+    public static List<Object> createPop(Context context, int width, int height, String title, @NonNull List<String> options){
         if (context == null){
             context = MyDemoApplication.getMyDemoApplication();
         }
@@ -47,13 +47,15 @@ public class PopFactory {
         optionsAdapter.addAll(options);
         popListBinding.popList.setAdapter(optionsAdapter);
 
-        popListBinding.popList.setOnItemClickListener(onItemClickListener);
-
         popupWindow.setContentView(popListBinding.getRoot());
 
         popupWindow.setOutsideTouchable(true);
         popupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         popupWindow.setTouchable(true);
-        return popupWindow;
+
+        List<Object> objects = new ArrayList<>();
+        objects.add(popupWindow);
+        objects.add(popListBinding.popList);
+        return objects;
     }
 }

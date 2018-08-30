@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPuzzleMainBg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/btn_time_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                style="@style/PuzzleGameViewStyle"
+                android:text="@string/puzzle_time_count"/>
+
+            <TextView
+                android:id="@+id/btn_step_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                style="@style/PuzzleGameViewStyle"
+                android:text="@string/puzzle_step_count"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/origin_pic"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:transitionName="share"
+            android:scaleType="fitXY"
+            android:layout_centerInParent="true"/>
+
+        <GridView
+            android:id="@+id/puzzle_pic_grid"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:scrollbars="none"
+            android:background="@color/colorWhite"
+            android:layout_centerInParent="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/btn_origin_pic"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                style="@style/PuzzleGameViewStyle"
+                android:text="@string/origin_pic"/>
+
+            <TextView
+                android:id="@+id/btn_reset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                style="@style/PuzzleGameViewStyle"
+                android:text="@string/reset"/>
+
+            <TextView
+                android:id="@+id/btn_back"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                style="@style/PuzzleGameViewStyle"
+                android:text="@string/back"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
