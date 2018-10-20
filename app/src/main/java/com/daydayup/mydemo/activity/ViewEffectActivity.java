@@ -27,6 +27,9 @@ public class ViewEffectActivity extends AppCompatActivity {
 
         //测试
         //测试2
+        //change master branch
+        //change master branch2
+
     }
 
     private void initView() {
