@@ -24,6 +24,8 @@ public class ViewEffectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initView();
         initEvent();
+
+        //测试
     }
 
     private void initView() {
