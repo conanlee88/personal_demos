@@ -25,6 +25,8 @@ public class ViewEffectActivity extends AppCompatActivity {
         initView();
         initEvent();
 
+        //change master branch
+
     }
 
     private void initView() {
