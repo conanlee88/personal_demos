@@ -26,6 +26,7 @@ public class ViewEffectActivity extends AppCompatActivity {
         initEvent();
 
         //测试
+        //测试2
     }
 
     private void initView() {
