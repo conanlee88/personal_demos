@@ -31,6 +31,7 @@ public class ViewEffectActivity extends AppCompatActivity {
         //change master branch2
         //测试3
         //测试4
+        //change master branch3
 
     }
 
