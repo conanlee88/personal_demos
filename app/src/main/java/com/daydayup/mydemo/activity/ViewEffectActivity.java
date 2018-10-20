@@ -27,7 +27,8 @@ public class ViewEffectActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        mViewEffectBinding = DataBindingUtil.setContentView(ViewEffectActivity.this, R.layout.activity_view_effect);
+        mViewEffectBinding = DataBindingUtil.setContentView(ViewEffectActivity.this,
+                R.layout.activity_view_effect);
     }
 
     private void initEvent() {
