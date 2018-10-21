@@ -35,6 +35,7 @@ public class ViewEffectActivity extends AppCompatActivity {
         //change master branch4
         //测试5
         //test for git rebase --skip
+        //test for git push form dev branch to master branch
 
     }
 
