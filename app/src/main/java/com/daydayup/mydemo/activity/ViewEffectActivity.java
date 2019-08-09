@@ -11,7 +11,6 @@ import com.daydayup.mydemo.R;
 import com.daydayup.mydemo.databinding.ActivityViewEffectBinding;
 
 /**
- *
  * Created by conan on 2018/7/18.
  */
 
@@ -41,14 +40,14 @@ public class ViewEffectActivity extends AppCompatActivity {
 
     private void initView() {
         mViewEffectBinding = DataBindingUtil.setContentView(ViewEffectActivity.this,
-                R.layout.activity_view_effect);
+            R.layout.activity_view_effect);
     }
 
     private void initEvent() {
         mViewEffectBinding.fanLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewEffectActivity.this,FanLayoutActivity.class);
+                Intent intent = new Intent(ViewEffectActivity.this, FanLayoutActivity.class);
                 startActivity(intent);
             }
         });
@@ -56,8 +55,15 @@ public class ViewEffectActivity extends AppCompatActivity {
         mViewEffectBinding.slideLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewEffectActivity.this,SlideLayoutActivity.class);
+                Intent intent = new Intent(ViewEffectActivity.this, SlideLayoutActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        mViewEffectBinding.splitView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SplitViewActivity.start(ViewEffectActivity.this);
             }
         });
     }

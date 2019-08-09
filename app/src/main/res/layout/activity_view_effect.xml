@@ -22,6 +22,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="slide_layout"/>
+
+            <Button
+                android:id="@+id/split_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="split_view"/>
         </LinearLayout>
     </ScrollView>
 </layout>

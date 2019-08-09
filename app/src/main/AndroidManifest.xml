@@ -39,6 +39,7 @@
         <activity android:name=".activity.game.GameHomeActivity"/>
         <activity android:name=".activity.game.puzzle.ui.PuzzleMainActivity"/>
         <activity android:name=".activity.game.puzzle.ui.PuzzleGameActivity"/>
+        <activity android:name=".activity.SplitViewActivity"/>
     </application>
 
 </manifest>
