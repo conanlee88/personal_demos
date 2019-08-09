@@ -33,7 +33,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
     implementation 'me.weyye.hipermission:library:1.0.7'
-    implementation 'com.wuyr:arcslidinghelper:1.0.1'
+    implementation 'com.wuyr:arcslidinghelper:1.0.0'
 }
 
 class GreetingPlugin implements Plugin<Project> {

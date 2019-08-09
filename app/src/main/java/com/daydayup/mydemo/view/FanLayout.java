@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.daydayup.mydemo.R;
 import com.daydayup.mydemo.consts.Consts;
 import com.daydayup.mydemo.util.ArcSlideHelper;
-import com.wuyr.ArcSlidingHelper;
+import com.wuyr.arcslidinghelper.ArcSlidingHelper;
 
 /**
  * 旋转的控件容器
