@@ -20,4 +20,16 @@ public class SplitElement {
         this.y = y;
     }
 
+    @Override
+    public String toString() {
+        return "SplitElement{" +
+            "x=" + x +
+            ", y=" + y +
+            ", color=" + color +
+            ", vX=" + vX +
+            ", vY=" + vY +
+            ", aX=" + aX +
+            ", aY=" + aY +
+            '}';
+    }
 }

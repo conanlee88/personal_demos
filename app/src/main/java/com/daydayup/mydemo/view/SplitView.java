@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -18,8 +19,6 @@ import android.view.animation.LinearInterpolator;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.logging.Logger;
 
 /**
  * Created by conan on 19-8-9
@@ -33,6 +32,8 @@ public class SplitView extends View {
     private List<SplitElement> mSplitElements = new ArrayList<>();
     private ValueAnimator mValueAnimator;
     private boolean mIsStart;
+    private int scale = 5;
+    private int centerOffset = scale / 2;
 
     public SplitView(Context context) {
         this(context, null);
@@ -52,35 +53,46 @@ public class SplitView extends View {
         BitmapFactory.Options ops = new BitmapFactory.Options();
         ops.inSampleSize = 3;
         mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.puzzle05, ops);
-        Random random = new Random();
-        for (int i = 0; i < mBitmap.getWidth(); i++) {
-            for (int j = 0; j < mBitmap.getHeight(); j++) {
+        Log.d(TAG, "init: width = " + mBitmap.getWidth());
+        Log.d(TAG, "init: height = " + mBitmap.getHeight());
+        for (int i = 0; i < mBitmap.getWidth() / scale; i++) {
+            for (int j = 0; j < mBitmap.getHeight() / scale; j++) {
                 SplitElement splitElement = new SplitElement(i, j);
-                splitElement.color = mBitmap.getPixel(i, j);
-                splitElement.vX = random.nextInt(20) - 10;
-                splitElement.vY = random.nextInt(20) - 10;
-//                splitElement.aX = 1;
-                splitElement.aY = 10;
+                splitElement.color = mBitmap.getPixel(i * scale + centerOffset, j * scale + centerOffset);
+                //速度 (-20,20)
+                splitElement.vX = (float) (Math.pow(-1, Math.ceil(Math.random() * 1000)) * 20 * Math.random());
+                splitElement.vY = rangInt(-15, 35);
+                splitElement.aX = 0;
+                splitElement.aY = 0.98f;
                 mSplitElements.add(splitElement);
             }
         }
-        mValueAnimator = ValueAnimator.ofFloat(1, 2);
+        Log.d(TAG, "init: mSplitElements = " + mSplitElements);
+        mValueAnimator = ValueAnimator.ofFloat(0, 1);
         mValueAnimator.setDuration(2000);
+        mValueAnimator.setRepeatCount(ValueAnimator.INFINITE);
         mValueAnimator.setInterpolator(new LinearInterpolator());
         mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                float value = (float) animation.getAnimatedValue();
-                updateSplitElements(value);
+                Log.d(TAG, "value = " + animation.getAnimatedValue());
+                updateSplitElements();
                 invalidate();
             }
         });
     }
 
-    private void updateSplitElements(float value) {
+    private int rangInt(int i, int j) {
+        int max = Math.max(i, j);
+        int min = Math.min(i, j) - 1;
+        //在0到(max - min)范围内变化，取大于x的最小整数 再随机
+        return (int) (min + Math.ceil(Math.random() * (max - min)));
+    }
+
+    private void updateSplitElements() {
         for (SplitElement splitElement : mSplitElements) {
-            splitElement.x += splitElement.vX * value;
-            splitElement.y += splitElement.vY * value;
+            splitElement.x += splitElement.vX;
+            splitElement.y += splitElement.vY;
             splitElement.vX += splitElement.aX;
             splitElement.vY += splitElement.aY;
         }
@@ -95,7 +107,7 @@ public class SplitView extends View {
         canvas.translate(startX, startY);
         for (SplitElement splitElement : mSplitElements) {
             mPaint.setColor(splitElement.color);
-            canvas.drawRect(splitElement.x, splitElement.y, splitElement.x + 1, splitElement.y + 1, mPaint);
+            canvas.drawRect(splitElement.x * scale - centerOffset, splitElement.y * scale - centerOffset, splitElement.x * scale + scale - centerOffset, splitElement.y * scale + scale - centerOffset, mPaint);
         }
     }
 
