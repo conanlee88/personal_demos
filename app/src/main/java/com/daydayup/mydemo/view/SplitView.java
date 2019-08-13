@@ -2,6 +2,7 @@ package com.daydayup.mydemo.view;
 
 import com.daydayup.mydemo.R;
 import com.daydayup.mydemo.activity.view.splitview.SplitElement;
+import com.daydayup.mydemo.util.NumberUtils;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -9,8 +10,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.support.annotation.Nullable;
-import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -32,8 +33,9 @@ public class SplitView extends View {
     private List<SplitElement> mSplitElements = new ArrayList<>();
     private ValueAnimator mValueAnimator;
     private boolean mIsStart;
-    private int scale = 5;
+    private int scale = 8;
     private int centerOffset = scale / 2;
+    private RectF mRectF;
 
     public SplitView(Context context) {
         this(context, null);
@@ -60,8 +62,9 @@ public class SplitView extends View {
                 SplitElement splitElement = new SplitElement(i, j);
                 splitElement.color = mBitmap.getPixel(i * scale + centerOffset, j * scale + centerOffset);
                 //速度 (-20,20)
-                splitElement.vX = (float) (Math.pow(-1, Math.ceil(Math.random() * 1000)) * 20 * Math.random());
-                splitElement.vY = rangInt(-15, 35);
+//                splitElement.vX = (float) (Math.pow(-1, Math.ceil(Math.random() * 1000)) * 20 * Math.random());
+                splitElement.vX = NumberUtils.rangeFloat(-20, 20);
+                splitElement.vY = NumberUtils.rangeInt(-15, 35);
                 splitElement.aX = 0;
                 splitElement.aY = 0.98f;
                 mSplitElements.add(splitElement);
@@ -80,13 +83,7 @@ public class SplitView extends View {
                 invalidate();
             }
         });
-    }
-
-    private int rangInt(int i, int j) {
-        int max = Math.max(i, j);
-        int min = Math.min(i, j) - 1;
-        //在0到(max - min)范围内变化，取大于x的最小整数 再随机
-        return (int) (min + Math.ceil(Math.random() * (max - min)));
+        mRectF = new RectF();
     }
 
     private void updateSplitElements() {
@@ -107,7 +104,10 @@ public class SplitView extends View {
         canvas.translate(startX, startY);
         for (SplitElement splitElement : mSplitElements) {
             mPaint.setColor(splitElement.color);
-            canvas.drawRect(splitElement.x * scale - centerOffset, splitElement.y * scale - centerOffset, splitElement.x * scale + scale - centerOffset, splitElement.y * scale + scale - centerOffset, mPaint);
+//            mRectF.set(splitElement.x * scale - centerOffset, splitElement.y * scale - centerOffset,
+//                splitElement.x * scale + scale - centerOffset, splitElement.y * scale + scale - centerOffset);
+//            canvas.drawRect(mRectF, mPaint);
+            canvas.drawCircle(splitElement.x * scale + centerOffset, splitElement.y * scale + centerOffset, scale, mPaint);
         }
     }
 
@@ -120,5 +120,14 @@ public class SplitView extends View {
             }
         }
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (mValueAnimator != null) {
+            mValueAnimator.cancel();
+            mValueAnimator = null;
+        }
     }
 }
