@@ -28,6 +28,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="split_view"/>
+
+            <Button
+                android:id="@+id/spread_coherence_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="spread_coherence_view"/>
         </LinearLayout>
     </ScrollView>
 </layout>

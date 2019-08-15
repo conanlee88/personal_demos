@@ -66,5 +66,12 @@ public class ViewEffectActivity extends AppCompatActivity {
                 SplitViewActivity.start(ViewEffectActivity.this);
             }
         });
+
+        mViewEffectBinding.spreadCoherenceView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SpreadCoherenceActivity.start(ViewEffectActivity.this);
+            }
+        });
     }
 }
