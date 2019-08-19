@@ -73,5 +73,12 @@ public class ViewEffectActivity extends AppCompatActivity {
                 SpreadCoherenceActivity.start(ViewEffectActivity.this);
             }
         });
+
+        mViewEffectBinding.viewXfermodeTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ViewXfermodeActivity.start(ViewEffectActivity.this);
+            }
+        });
     }
 }

@@ -111,7 +111,7 @@ public class SpreadCoherenceView extends View {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
-                    ToastUtils.makeToast("旋转动画结束,开始扩散内聚动画");
+//                    ToastUtils.makeToast("旋转动画结束,开始扩散内聚动画");
                     mSpreadCoherenceAnimation = new SpreadCoherenceAnimation();
                     mDrawState = STATE_SPREAD_COHERENCE;
                 }
@@ -153,7 +153,7 @@ public class SpreadCoherenceView extends View {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
-                    ToastUtils.makeToast("扩散内聚动画结束,开始水波纹动画");
+//                    ToastUtils.makeToast("扩散内聚动画结束,开始水波纹动画");
                     mWaterWaveAnimation = new WaterWaveAnimation();
                     mDrawState = STATE_WATER_WAVE;
                 }
@@ -200,7 +200,7 @@ public class SpreadCoherenceView extends View {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
-                    ToastUtils.makeToast("动画结束");
+//                    ToastUtils.makeToast("动画结束");
                 }
             });
             mValueAnimator.start();

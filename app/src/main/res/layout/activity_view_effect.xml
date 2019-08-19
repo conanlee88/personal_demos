@@ -34,6 +34,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="spread_coherence_view"/>
+
+            <Button
+                android:id="@+id/view_xfermode_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="view_xfermode_test"/>
         </LinearLayout>
     </ScrollView>
 </layout>
