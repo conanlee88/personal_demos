@@ -111,7 +111,7 @@ public class XfermodeTestView extends View {
     }
 
     /**
-     * 1.先绘制的为src,后绘制的为dst
+     * 1.先绘制的为dst,后绘制的为src
      * 2.设置重叠模式的两张图应该尺寸是一样的,才能获取到正确的模式
      */
 
@@ -123,11 +123,11 @@ public class XfermodeTestView extends View {
         canvas.save();
         canvas.translate((reverse ? width * 3 : width) / 4f - w / 2f, marginTop);
         canvas.drawBitmap(reverse ? mRectBitmap : mCircleBitmap, 0, 0, mPaint);
-        drawTip(canvas, dst);
+        drawTip(canvas, dst + (reverse ? " --- reverse" : ""));
         canvas.save();
         canvas.drawBitmap(reverse ? mCircleBitmap : mRectBitmap, 0, 0, mPaint);
         canvas.translate(w / 3f, w / 3f);
-        drawTip(canvas, src);
+        drawTip(canvas, src + (reverse ? " --- reverse" : ""));
         canvas.restore();
         // 绘制应用图层叠加模式后的效果
         canvas.translate(0, marginTop + h);
