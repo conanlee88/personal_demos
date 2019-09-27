@@ -40,7 +40,7 @@ public class ViewEffectActivity extends AppCompatActivity {
 
     private void initView() {
         mViewEffectBinding = DataBindingUtil.setContentView(ViewEffectActivity.this,
-            R.layout.activity_view_effect);
+                R.layout.activity_view_effect);
     }
 
     private void initEvent() {
@@ -78,6 +78,13 @@ public class ViewEffectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ViewXfermodeActivity.start(ViewEffectActivity.this);
+            }
+        });
+
+        mViewEffectBinding.viewLoading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoadingViewActivity.start(ViewEffectActivity.this);
             }
         });
     }

@@ -40,6 +40,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="view_xfermode_test"/>
+
+            <Button
+                android:id="@+id/view_loading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="view_loading"/>
         </LinearLayout>
     </ScrollView>
 </layout>

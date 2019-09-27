@@ -42,6 +42,7 @@
         <activity android:name=".activity.SplitViewActivity"/>
         <activity android:name=".activity.SpreadCoherenceActivity"/>
         <activity android:name=".activity.ViewXfermodeActivity"/>
+        <activity android:name=".activity.LoadingViewActivity" />
     </application>
 
 </manifest>
